@@ -61,13 +61,25 @@ s000d=S_0002
 n002=S_START
 n019=start
 n005=S_0001
-n017=43,39
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=52,245
 n018=100001
 
 [s0002]
 n002=S_END
 n019=end
-n017=720,45
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=729,245
 n018=100002
 
 [s0003]
@@ -77,10 +89,10 @@ n009=println!("StateGo is running");
 n016=@@@
 /
 (100,100)
-
+The root
 @@@
 
-n017=173,36
+n017=182,245
 n018=100003
 
 [s000d]
@@ -100,10 +112,10 @@ n00e=self.m_cnt != 10
 n016=@@@
 /
 (100,100)
-
+The root
 @@@
 
-n017=396,36
+n017=405,245
 n018=100004
 
 
@@ -113,7 +125,7 @@ n018=100004
 sheet=config
 
 ###VARIOUS-CONTENTS-BEGIN###
-; The setting was created automatically. 2020/05/30 23:31:28
+; The setting was created automatically. 2020/05/30 23:51:35
 ; * pssgEditor version : 0.64.60298.no hash because of debug
 psggfile=@@@
 hoge_control.psgg
@@ -131,7 +143,7 @@ c_thumbnail=1
 c_contents=1
 force_display_outpin=0
 last_action=@@@
-mov,S_START
+init,Saved
 @@@
 target_pathdir=@@@
 /
@@ -146,7 +158,7 @@ nodegroup_pos_list=@@@
 [{"Key":"\/","Value":{"x":100,"y":100}}]
 @@@
 fillter_state_location_list=@@@
-[{"Key":"\/","Value":[{"Key":"S_START","Value":{"x":43,"y":39}},{"Key":"S_END","Value":{"x":720,"y":45}},{"Key":"S_0001","Value":{"x":173,"y":36}},{"Key":"S_0002","Value":{"x":396,"y":36}}]}]
+[{"Key":"\/","Value":[{"Key":"S_START","Value":{"x":52,"y":245}},{"Key":"S_END","Value":{"x":729,"y":245}},{"Key":"S_0001","Value":{"x":182,"y":245}},{"Key":"S_0002","Value":{"x":405,"y":245}}]}]
 @@@
 linecolor_data=@@@
 [{"color":{"knownColor":0,"name":null,"state":2,"value":4285493103},"pattern":"BACKTO_"}]
@@ -229,6 +241,10 @@ eof>>>
 /*
     [[state]]
     [[state-cmt]]
+    <<<?members
+    members      : [[members]]
+    members init : [[members_init]]
+    >>>
 */
 <<<?state-typ/^start$/
 #[allow(non_snake_case)]

@@ -32,7 +32,6 @@ pub mod hoge_control {
         m_cur:  State,
         m_next: State,
 
-        // ステート関数のmember用 , memberinitもいる！
         //    [STATEGO OUTPUT START] indent(8) $/^S_/->#def_members$
 //  psggConverterLib.dll converted from hoge_control.xlsx.    psgg-file:hoge_control.psgg
         m_cnt: i32,
@@ -127,6 +126,8 @@ pub mod hoge_control {
         }
         /*
             S_0002
+            members      : m_cnt: i32,
+            members init : m_cnt: 0,
         */
         #[allow(non_snake_case)]
         fn S_0002(&mut self) {
