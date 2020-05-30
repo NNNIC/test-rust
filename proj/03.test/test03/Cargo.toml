@@ -1,0 +1,9 @@
+[package]
+name = "test03"
+version = "0.1.0"
+authors = ["nn4343 <gea01441@nifty.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]

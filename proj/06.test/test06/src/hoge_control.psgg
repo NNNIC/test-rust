@@ -1,0 +1,678 @@
+﻿;PSGG Editor Backup File
+version=1.1
+file=hoge_control.xlsx
+guid=7a05720f-5f7c-43a7-b966-9e5e839833a1
+;set read_from  excel or psgg
+read_from=psgg
+;set savemode with_excel or psgg_only
+save_mode=psgg_only
+;set check_excel_writable yes or no
+check_excel_writable=no
+
+------#======*<Guid(D13821FE-FA27-4B04-834C-CEC1E5670F48)>*======#------
+
+sheet=state-chart
+nameid_list=,n001,n002,n003,n004,n019,n005,,n01e,n006,,n007,n01f,,n008,n009,n00a,n00b,,n00c,n00d,,n00e,n00f,,n010,n011,,n012,n013,n014,n015,,n01a,,n01b,n01c,n01d,n016,n017,n018,,,,,,
+stateid_list=,,,,s0001,s0002,s000d,s0003,,,,,,,,
+max_name_id=31
+max_state_id=13
+[id_name_dic]
+n001=thumbnail
+n002=state
+n003=state-cmt
+n004=state-ref
+n005=nextstate
+n006=embed
+n007=members
+n008=vars
+n009=init
+n00a=init-cmt
+n00b=init-ref
+n00c=update
+n00d=update-cmt
+n00e=wait
+n00f=wait-cmt
+n010=post_wait
+n011=post_wait-cmt
+n012=branch
+n013=branch-cmt
+n014=brcond
+n015=nowait
+n016=!dir
+n017=!pos
+n018=!uuid
+n019=state-typ
+n01a=gosubstate
+n01b=loop_init
+n01c=loop_cond
+n01d=loop_next
+n01e=basestate
+n01f=members_init
+
+
+[id_state_dic]
+s0001=S_START
+s0002=S_END
+s0003=S_0001
+s000d=S_0002
+
+
+[s0001]
+n002=S_START
+n019=start
+n005=S_0001
+n017=43,39
+n018=100001
+
+[s0002]
+n002=S_END
+n019=end
+n017=720,45
+n018=100002
+
+[s0003]
+n002=S_0001
+n005=S_0002
+n009=println!("StateGo is running");
+n016=@@@
+/
+(100,100)
+
+@@@
+
+n017=173,36
+n018=100003
+
+[s000d]
+n001=(bitmap)
+n002=S_0002
+n003=
+n005=S_END
+n007=m_cnt: i32,
+n01f=m_cnt: 0,
+n009=self.m_cnt = 0;
+n00c=@@@
+println!("cnt={}", self.m_cnt);
+self.m_cnt += 1;
+@@@
+
+n00e=self.m_cnt != 10
+n016=@@@
+/
+(100,100)
+
+@@@
+
+n017=396,36
+n018=100004
+
+
+
+------#======*<Guid(70C5A739-223A-457D-8AEE-1A0E2050D5AE)>*======#------
+
+sheet=config
+
+###VARIOUS-CONTENTS-BEGIN###
+; The setting was created automatically. 2020/05/30 23:31:28
+; * pssgEditor version : 0.64.60298.no hash because of debug
+psggfile=@@@
+hoge_control.psgg
+@@@
+xlsfile=@@@
+hoge_control.xlsx
+@@@
+guid=@@@
+7a05720f-5f7c-43a7-b966-9e5e839833a1
+@@@
+bitmap_width=5000
+bitmap_height=2000
+c_statec_cmt=1
+c_thumbnail=1
+c_contents=1
+force_display_outpin=0
+last_action=@@@
+mov,S_START
+@@@
+target_pathdir=@@@
+/
+@@@
+state_location_list=@@@
+
+@@@
+nodegroup_comment_list=@@@
+[{"Key":"\/","Value":""}]
+@@@
+nodegroup_pos_list=@@@
+[{"Key":"\/","Value":{"x":100,"y":100}}]
+@@@
+fillter_state_location_list=@@@
+[{"Key":"\/","Value":[{"Key":"S_START","Value":{"x":43,"y":39}},{"Key":"S_END","Value":{"x":720,"y":45}},{"Key":"S_0001","Value":{"x":173,"y":36}},{"Key":"S_0002","Value":{"x":396,"y":36}}]}]
+@@@
+linecolor_data=@@@
+[{"color":{"knownColor":0,"name":null,"state":2,"value":4285493103},"pattern":"BACKTO_"}]
+@@@
+use_external_command=0
+external_command=@@@
+
+@@@
+source_editor_set=@@@
+
+@@@
+label_show=0
+label_text=@@@
+test
+@@@
+option_delete_thisstring=1
+option_delete_br_string=1
+option_delete_bracket_string=1
+option_delete_s_state_string=1
+option_copy_output_to_clipboard=0
+option_convert_with_confirm=0
+option_ignore_case_of_state=0
+option_editbranch_automode=1
+option_use_custom_prefix=0
+option_omit_basestate_string=0
+option_hide_basestate_contents=1
+option_hide_branchcmt_onbranchbox=0
+font_name=@@@
+MS UI Gothic
+@@@
+font_size=11
+comment_font_size=0
+contents_font_size=0
+state_width=140
+state_height=20
+state_short_width=50
+state_short_height=20
+comment_block_height=20
+content_max_height=200
+comment_block_fixed=0
+line_space=-1
+userbutton_title=@@@
+
+@@@
+userbutton_command=@@@
+
+@@@
+userbutton_callafterconvert=0
+itemeditform_size_list=@@@
+
+@@@
+decoimage_typ_name=@@@
+sym
+@@@
+
+###VARIOUS-CONTENTS-END###
+
+
+------#======*<Guid(70C5A739-223A-457D-8AEE-1A0E2050D5AE)>*======#------
+
+sheet=template-source
+
+###VARIOUS-CONTENTS-BEGIN###
+
+###VARIOUS-CONTENTS-END###
+
+
+------#======*<Guid(70C5A739-223A-457D-8AEE-1A0E2050D5AE)>*======#------
+
+sheet=template-statefunc
+
+###VARIOUS-CONTENTS-BEGIN###
+<<<?state/^C_/
+eof>>>
+<<<?state/^E_/
+eof>>>
+
+
+
+/*
+    [[state]]
+    [[state-cmt]]
+*/
+<<<?state-typ/^start$/
+#[allow(non_snake_case)]
+fn [[state]](&mut self) {
+    self.goto(State::[[nextstate]]);
+    self.no_wait();
+}
+eof>>>
+
+<<<?state-typ/^end$/
+#[allow(non_snake_case)]
+fn [[state]](&mut self) {
+}
+eof>>>
+
+<<<?state-typ/^gosub$/
+#[allow(non_snake_case)]
+fn [[state]](&mut self) {
+    GoSubState([[gosubstate]],[[nextstate]]);
+    self.no_wait();
+}
+eof>>>
+
+<<<?state-typ/^subreturn$/
+#[allow(non_snake_case)]
+fn [[state]](&mut self) {
+    ReturnState();
+    self.no_wait();
+}
+eof>>>
+
+<<<?state-typ/^loop$/
+#[allow(non_snake_case)]
+fn [[state]](&mut self) {
+    [[loop_init]]
+    Goto([[state]]_LoopCheckAndGosub____);
+    self.no_wait();
+}
+#[allow(non_snake_case)]
+fn [[state]]_LoopCheckAndGosub____(&mut self) {
+    if ([[loop_cond]]) GoSubState([[gosubstate]],[[state]]_LoopNext____);
+    else               Goto([[nextstate]]);
+    self.no_wait();
+}
+#[allow(non_snake_case)]
+fn [[state]]_LoopNext____(&mut self) {
+    [[loop_next]]
+    Goto([[state]]_LoopCheckAndGosub____);
+    self.no_wait();
+}
+eof>>>
+
+#[allow(non_snake_case)]
+fn [[state]](&mut self) {
+    [[vars]]
+
+    <<<?init
+    if self.m_first {
+        [[init]]
+    }
+    >>>
+
+    [[update]]
+
+    <<<?wait
+    if [[wait]] {
+        return;
+    }
+    >>>
+
+    [[post_wait]]
+
+    [[branch]]
+
+    <<<?nextstate
+    if !self.has_next() {
+        self.goto(State::[[nextstate]]);
+    }
+    >>>
+
+    <<<?nowait
+    if self.has_next() {
+        self.no_wait();
+    }
+    >>>
+}
+###VARIOUS-CONTENTS-END###
+
+
+------#======*<Guid(70C5A739-223A-457D-8AEE-1A0E2050D5AE)>*======#------
+
+sheet=setting.ini
+
+###VARIOUS-CONTENTS-BEGIN###
+[setting]
+
+psgg=hoge_control.psgg
+xls=hoge_control.xlsx
+sub_src=
+gen_src=hoge_control.rs
+
+manager_src=
+manager_dir=
+
+template_src=
+template_func=template-statefunc.txt
+
+help=help.ini
+helpweb=starterkit2\c\helpweb.html
+
+
+[setupinfo]
+
+starterkit=@@@
+https://github.com/NNNIC/psgg-starter-kit.git b8deda1cf808e4b9b62e5697e1958776f605d049
+@@@
+
+
+
+lang=c
+framework=
+
+statemachine=hoge_control
+
+prefix=__PREFIX__
+xlsdir=C:\Temp\0530a
+gendir=C:\Temp\0530a
+genrdir=.
+incrdir=.
+
+code_output_start=[STATEGO OUTPUT START]
+code_output_end=[STATEGO OUTPUT END]
+
+; This section has macro defines for converting.
+
+; commentline format  {%0} will be replaced to a comment.
+[macro]
+
+commentline=// {%0}
+
+@branch=@@@
+<<<?"{%0}"/^brifc{0,1}$/
+if ([[brcond:{%N}]]) { SetNextState( {%1} ); }
+>>>
+<<<?"{%0}"/^brelseifc{0,1}$/
+else if ([[brcond:{%N}]]) { SetNextState( {%1} ); }
+>>>
+<<<?"{%0}"/^brelse$/
+else { SetNextState( {%1} ); }
+>>>
+<<<?"{%0}"/^br_/
+{%0}({%1});
+>>>
+@@@
+
+
+#static=@@@
+static void [[state]](bool bFirst);
+<<<?state-typ/^loop$/
+static void [[state]]_LoopCheckAndGosub____(bool bFirst);
+static void [[state]]_LoopCheckAndGosub____(bool bFirst);
+static void [[state]]_LoopNext____(bool bFirst);
+>>>
+@@@
+
+#enums=@@@
+#[allow(non_camel_case_types)]
+[[state]],
+@@@
+
+#def_members=@@@
+[[members]]
+@@@
+
+#ini_members=@@@
+[[members_init]]
+@@@
+
+#matches=@@@
+State::[[state]] => self.[[state]](),
+@@@
+
+[jpn]
+
+title=C スタートキット 2019/11/2
+
+detail=@@@
+C 用のステートマシンを作成します。
+
+※サンプルプロジェクトを次のＵＲＬより入手可能。
+https://github.com/NNNIC/psgg-c-sample
+
+
+#  以下のファイルを作成します。
+
+      hoge_control.pssg   --- StateGoデータファイル
+      hoge_control.c      --- 実行ソース。変換コードが挿入される。
+@@@
+
+
+[en]
+
+title=C STARTER KIT 2019/11/2
+
+detail=@@@
+This is for creating a state machine using C language.
+
+* You may get the sample project from the below url.
+https://github.com/NNNIC/psgg-c-sample
+
+# Files
+
+      hoge_control.pssg  --- StateGo Data File
+      hoge_control.c      -- StateGo will convert data to this file.
+
+@@@
+###VARIOUS-CONTENTS-END###
+
+
+------#======*<Guid(70C5A739-223A-457D-8AEE-1A0E2050D5AE)>*======#------
+
+sheet=help
+
+###VARIOUS-CONTENTS-BEGIN###
+[nextstate]
+
+jpn=次に実行するステートを指定する。
+en=Specify the next state to be executed.
+[branch]
+
+jpn=@@@
+分岐処理を指定する。
+１行に一つの分岐命令を書く。
+GUIにより上書きされるため引数は適当に指定する。
+例）
+br_YES(?);
+br_NO(?);
+br_UNKNOWN(?);
+@@@
+
+en=@@@
+Specify branch functions.
+Each line has a branch function.
+Specify a tentavie parameter for each branch function because GUI overwrites the parameter.
+i.e)
+br_YES(?);
+br_NO(?);
+br_UNKNOWN(?);
+@@@
+
+[update]
+
+jpn=更新処理を指定する。
+en=Specify a update process.
+[wait]
+
+jpn=@@@
+待ち条件を指定する。
+true時にループを解除する。
+@@@
+
+en=@@@
+Specify a waiting condition.
+Release the loop if the condition is true.
+@@@
+
+[gosubstate]
+
+en=Call Subroutine
+jpn=サブルーチン呼出し
+[loop_next]
+
+en=Loop increment.
+jpn=ループ用インクリメント
+[state]
+
+jpn=@@@
+ステート名を指定する。
+英文字、数字、アンダーバーで構成される。
+先頭は英文字およびアンダーバー。
+@@@
+
+en=@@@
+Specify a state name.
+The state name consits of alphabet, number and underbar except that the head characther should be alphabet or a underbar.
+@@@
+
+[members]
+
+jpn=メンバ変数及び関数等を指定する。
+en=@@@
+Specify members, variables, classes,  etc.
+@@@
+
+[post_wait]
+
+jpn='wait'後の処理を指定する。
+en=Specify the post process after 'wait'.
+[members_init]
+
+en=Set initialization code.
+jpn=初期化コードを入力
+[vars]
+
+jpn=変数宣言を指定する。
+en=Specify variable definitions.
+[nowait]
+
+jpn=@@@
+次のステートへ同期待ちをせず実行する時に 'nowait'等を指定する。
+同期待ち時には何も指定しない。
+@@@
+
+en=@@@
+Specify 'nowait' and so on if the next state will be execute without a sync wait.
+Do not specify any word wheh the next state will be execute with a sync wait.
+@@@
+
+[embed]
+
+jpn=@@@
+コード埋め込み用。
+ステート名がI_時に利用可能。
+ステート機能は利用できない。
+@@@
+
+en=@@@
+For embedding code.
+Enable this section if state name starts with "I_".
+Disabled state features.
+@@@
+
+[basestate]
+
+en=Set base state
+jpn=ベースステートのセット
+[!uuid]
+
+jpn=システムがステートのuuid指定に使用。
+en=@@@
+System uses this for the uuid of the state.
+@@@
+
+[state-typ]
+
+en=ステートタイプを指定
+[init]
+
+jpn=初期化用処理を指定する。
+en=Specify a initial process.
+[!dir]
+
+jpn=システムがステートのディレクトリ指定に使用。
+en=@@@
+System uses this for the directory path of the state.
+@@@
+
+[loop_init]
+
+en=Loop Initialization
+jpn=ループ初期化
+[thumbnail]
+
+jpn=説明用のイメージを指定する。
+en=@@@
+Specify a image for explanation of this state.
+@@@
+
+[loop_cond]
+
+en=Loop if the condition is true
+jpn=@@@
+ループ条件
+true時にループする。
+@@@
+###VARIOUS-CONTENTS-END###
+
+
+------#======*<Guid(70C5A739-223A-457D-8AEE-1A0E2050D5AE)>*======#------
+
+sheet=itemsinfo
+
+###VARIOUS-CONTENTS-BEGIN###
+[inpmethod]
+
+init=
+branch-cmt=
+state-ref=
+wait=
+wait-cmt=
+embed=
+gosubstate=
+loop_cond=
+branch=
+!dir=
+post_wait-cmt=
+nowait=@@@
+*select
+nowait
+@@@
+
+members=
+thumbnail=
+update-cmt=
+post_wait=
+state-cmt=
+state-typ=
+!pos=
+!uuid=
+nextstate=
+state=
+S_=
+brcond=
+update=
+init-cmt=
+basestate=
+loop_next=
+vars=
+C_=
+members_init=
+E_=
+init-ref=
+loop_init=
+[stateloc]
+
+E_=S1
+S_=S0
+C_=S2
+[itemcond]
+
+thumbnail=read_only,share,S.+
+gosubstate=read_only,exclusion,(S0)
+branch=read_only,exclusion,S0
+state=read_only,share,S.+
+nextstate=read_only,exclusion,S0
+return=read_only,exclusion,S0
+brcond=read_only,exclusion,S0
+embed=read_only,exclusion,S1
+basestate=read_only,exclusion,(S0)
+state-typ=read_only,exclusion,(S0)
+###VARIOUS-CONTENTS-END###
+
+
+
+------#======*<Guid(4DC98CBA-6257-4E26-A454-A53F85BC234C)>*======#------
+
+
