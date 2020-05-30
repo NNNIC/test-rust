@@ -13,9 +13,9 @@ check_excel_writable=no
 
 sheet=state-chart
 nameid_list=,n001,n002,n003,n004,n019,n005,,n01e,n006,,n007,n01f,,n008,n009,n00a,n00b,,n00c,n00d,,n00e,n00f,,n010,n011,,n012,n013,n014,n015,,n01a,,n01b,n01c,n01d,n016,n017,n018,,,,,,
-stateid_list=,,,,s0001,s0002,s000d,s0003,,,,,,,,
+stateid_list=,,,,s0001,s0002,s000d,s0003,s000f,s0010,,,,,,,,s000e
 max_name_id=31
-max_state_id=13
+max_state_id=16
 [id_name_dic]
 n001=thumbnail
 n002=state
@@ -55,6 +55,9 @@ s0001=S_START
 s0002=S_END
 s0003=S_0001
 s000d=S_0002
+s000e=S_0003
+s000f=S_0004
+s0010=S_0005
 
 
 [s0001]
@@ -79,7 +82,7 @@ n016=@@@
 The root
 @@@
 
-n017=729,245
+n017=762,236
 n018=100002
 
 [s0003]
@@ -92,14 +95,14 @@ n016=@@@
 The root
 @@@
 
-n017=182,245
+n017=176,106
 n018=100003
 
 [s000d]
 n001=(bitmap)
 n002=S_0002
 n003=
-n005=S_END
+n005=S_0003
 n007=m_cnt: i32,
 n01f=m_cnt: 0,
 n009=self.m_cnt = 0;
@@ -115,8 +118,61 @@ n016=@@@
 The root
 @@@
 
-n017=405,245
+n017=425,81
 n018=100004
+
+[s000e]
+n002=S_0003
+n008=let b = true;
+n012=@@@
+brifc(S_0004);
+brelse(S_0005);
+@@@
+
+n013=@@@
+?
+?
+@@@
+
+n014=@@@
+b
+?
+@@@
+
+n016=@@@
+/
+(100,100)
+
+@@@
+
+n017=191,455
+n018=100005
+
+[s000f]
+n002=S_0004
+n003=new state
+n005=S_END
+n016=@@@
+/
+(100,100)
+
+@@@
+
+n017=513,404
+n018=100006
+
+[s0010]
+n002=S_0005
+n003=new state
+n005=S_END
+n016=@@@
+/
+(100,100)
+
+@@@
+
+n017=518,512
+n018=100007
 
 
 
@@ -125,7 +181,7 @@ n018=100004
 sheet=config
 
 ###VARIOUS-CONTENTS-BEGIN###
-; The setting was created automatically. 2020/05/30 23:51:35
+; The setting was created automatically. 2020/05/31 7:56:46
 ; * pssgEditor version : 0.64.60298.no hash because of debug
 psggfile=@@@
 hoge_control.psgg
@@ -152,13 +208,13 @@ state_location_list=@@@
 
 @@@
 nodegroup_comment_list=@@@
-[{"Key":"\/","Value":""}]
+[{"Key":"\/","Value":"The root"}]
 @@@
 nodegroup_pos_list=@@@
 [{"Key":"\/","Value":{"x":100,"y":100}}]
 @@@
 fillter_state_location_list=@@@
-[{"Key":"\/","Value":[{"Key":"S_START","Value":{"x":52,"y":245}},{"Key":"S_END","Value":{"x":729,"y":245}},{"Key":"S_0001","Value":{"x":182,"y":245}},{"Key":"S_0002","Value":{"x":405,"y":245}}]}]
+[{"Key":"\/","Value":[{"Key":"S_START","Value":{"x":52,"y":245}},{"Key":"S_END","Value":{"x":762,"y":236}},{"Key":"S_0001","Value":{"x":176,"y":106}},{"Key":"S_0002","Value":{"x":425,"y":81}},{"Key":"S_0003","Value":{"x":191,"y":455}},{"Key":"S_0004","Value":{"x":513,"y":404}},{"Key":"S_0005","Value":{"x":518,"y":512}}]}]
 @@@
 linecolor_data=@@@
 [{"color":{"knownColor":0,"name":null,"state":2,"value":4285493103},"pattern":"BACKTO_"}]
@@ -387,28 +443,19 @@ commentline=// {%0}
 
 @branch=@@@
 <<<?"{%0}"/^brifc{0,1}$/
-if ([[brcond:{%N}]]) { SetNextState( {%1} ); }
+if [[brcond:{%N}]] { self.goto( State::{%1} ); }
 >>>
 <<<?"{%0}"/^brelseifc{0,1}$/
-else if ([[brcond:{%N}]]) { SetNextState( {%1} ); }
+else if [[brcond:{%N}]] { self.goto( State::{%1} ); }
 >>>
 <<<?"{%0}"/^brelse$/
-else { SetNextState( {%1} ); }
+else { self.goto( State::{%1} ); }
 >>>
 <<<?"{%0}"/^br_/
-{%0}({%1});
+{%0}( State::{%1} );
 >>>
 @@@
 
-
-#static=@@@
-static void [[state]](bool bFirst);
-<<<?state-typ/^loop$/
-static void [[state]]_LoopCheckAndGosub____(bool bFirst);
-static void [[state]]_LoopCheckAndGosub____(bool bFirst);
-static void [[state]]_LoopNext____(bool bFirst);
->>>
-@@@
 
 #enums=@@@
 #[allow(non_camel_case_types)]

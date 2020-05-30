@@ -12,6 +12,12 @@ pub mod hoge_control {
         #[allow(non_camel_case_types)]
         S_0002,
         #[allow(non_camel_case_types)]
+        S_0003,
+        #[allow(non_camel_case_types)]
+        S_0004,
+        #[allow(non_camel_case_types)]
+        S_0005,
+        #[allow(non_camel_case_types)]
         S_END,
         #[allow(non_camel_case_types)]
         S_START,
@@ -97,6 +103,9 @@ pub mod hoge_control {
 //  psggConverterLib.dll converted from hoge_control.xlsx.    psgg-file:hoge_control.psgg
                         State::S_0001 => self.S_0001(),
                         State::S_0002 => self.S_0002(),
+                        State::S_0003 => self.S_0003(),
+                        State::S_0004 => self.S_0004(),
+                        State::S_0005 => self.S_0005(),
                         State::S_END => self.S_END(),
                         State::S_START => self.S_START(),
 
@@ -139,6 +148,35 @@ pub mod hoge_control {
             if self.m_cnt != 10 {
                 return;
             }
+            if !self.has_next() {
+                self.goto(State::S_0003);
+            }
+        }
+        /*
+            S_0003
+        */
+        #[allow(non_snake_case)]
+        fn S_0003(&mut self) {
+            let b = true;
+            if b { self.goto( State::S_0004 ); }
+            else { self.goto( State::S_0005 ); }
+        }
+        /*
+            S_0004
+            new state
+        */
+        #[allow(non_snake_case)]
+        fn S_0004(&mut self) {
+            if !self.has_next() {
+                self.goto(State::S_END);
+            }
+        }
+        /*
+            S_0005
+            new state
+        */
+        #[allow(non_snake_case)]
+        fn S_0005(&mut self) {
             if !self.has_next() {
                 self.goto(State::S_END);
             }
