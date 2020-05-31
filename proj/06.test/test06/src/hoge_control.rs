@@ -1,12 +1,18 @@
 ﻿#[allow(dead_code)]
 
+
 pub mod hoge_control {
+
+    use rand::Rng;
+
+
     #[derive(PartialEq,Clone,Copy)]
     enum State {
         #[allow(non_camel_case_types)]
         None,
         //    [STATEGO OUTPUT START] indent(8) $/^S_/->#enums$
-//  psggConverterLib.dll converted from hoge_control.xlsx.    psgg-file:hoge_control.psgg
+        //             psggConverterLib.dll converted from psgg-file:hoge_control.psgg
+
         #[allow(non_camel_case_types)]
         S_0001,
         #[allow(non_camel_case_types)]
@@ -27,7 +33,8 @@ pub mod hoge_control {
     }
 
     //    [STATEGO OUTPUT START] indent(4) $/^E_/$ 
-//  psggConverterLib.dll converted from hoge_control.xlsx.    psgg-file:hoge_control.psgg
+    //             psggConverterLib.dll converted from psgg-file:hoge_control.psgg
+
 
 
     //    [STATEGO OUTPUT END] 
@@ -39,7 +46,8 @@ pub mod hoge_control {
         m_next: State,
 
         //    [STATEGO OUTPUT START] indent(8) $/^S_/->#def_members$
-//  psggConverterLib.dll converted from hoge_control.xlsx.    psgg-file:hoge_control.psgg
+        //             psggConverterLib.dll converted from psgg-file:hoge_control.psgg
+
         m_cnt: i32,
 
         //    [STATEGO OUTPUT END] 
@@ -53,7 +61,8 @@ pub mod hoge_control {
                 m_cur: State::None,
                 m_next: State::None,
                 //    [STATEGO OUTPUT START] indent(16) $/^S_/->#ini_members$
-//  psggConverterLib.dll converted from hoge_control.xlsx.    psgg-file:hoge_control.psgg
+                //             psggConverterLib.dll converted from psgg-file:hoge_control.psgg
+
                 m_cnt: 0,
 
                 //    [STATEGO OUTPUT END] 
@@ -100,7 +109,8 @@ pub mod hoge_control {
                 if self.m_cur != State::None {
                     match self.m_cur {
                         //    [STATEGO OUTPUT START] indent(24) $/^S_/->#matches$
-//  psggConverterLib.dll converted from hoge_control.xlsx.    psgg-file:hoge_control.psgg
+                        //             psggConverterLib.dll converted from psgg-file:hoge_control.psgg
+
                         State::S_0001 => self.S_0001(),
                         State::S_0002 => self.S_0002(),
                         State::S_0003 => self.S_0003(),
@@ -120,7 +130,8 @@ pub mod hoge_control {
             }
         }
         //    [STATEGO OUTPUT START] indent(8) $/^S_/$
-//  psggConverterLib.dll converted from hoge_control.xlsx.    psgg-file:hoge_control.psgg
+        //             psggConverterLib.dll converted from psgg-file:hoge_control.psgg
+
         /*
             S_0001
         */

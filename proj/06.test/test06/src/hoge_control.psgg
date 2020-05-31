@@ -181,7 +181,7 @@ n018=100007
 sheet=config
 
 ###VARIOUS-CONTENTS-BEGIN###
-; The setting was created automatically. 2020/05/31 7:56:46
+; The setting was created automatically. 2020/05/31 8:52:10
 ; * pssgEditor version : 0.64.60298.no hash because of debug
 psggfile=@@@
 hoge_control.psgg
@@ -199,7 +199,7 @@ c_thumbnail=1
 c_contents=1
 force_display_outpin=0
 last_action=@@@
-init,Saved
+init,Initilized
 @@@
 target_pathdir=@@@
 /
