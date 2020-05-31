@@ -183,8 +183,8 @@ n018=100007
 sheet=config
 
 ###VARIOUS-CONTENTS-BEGIN###
-; The setting was created automatically. 2020/05/31 9:17:00
-; * pssgEditor version : 0.64.65347.9a06832c09c6c0ad3e18f8476b073017fef0c06d
+; The setting was created automatically. 2020/05/31 10:18:43
+; * pssgEditor version : 0.64.60298.no hash because of debug
 psggfile=@@@
 hoge_control.psgg
 @@@
@@ -201,7 +201,7 @@ c_thumbnail=1
 c_contents=1
 force_display_outpin=0
 last_action=@@@
-mov,S_START
+init,Initilized
 @@@
 target_pathdir=@@@
 /
@@ -216,7 +216,7 @@ nodegroup_pos_list=@@@
 [{"Key":"\/","Value":{"x":100,"y":100}}]
 @@@
 fillter_state_location_list=@@@
-[{"Key":"\/","Value":[{"Key":"S_START","Value":{"x":52,"y":113.888885}},{"Key":"S_END","Value":{"x":779,"y":509}},{"Key":"S_0001","Value":{"x":176,"y":106}},{"Key":"S_0002","Value":{"x":425,"y":81}},{"Key":"S_0003","Value":{"x":191,"y":455}},{"Key":"S_0004","Value":{"x":513,"y":404}},{"Key":"S_0005","Value":{"x":527,"y":632}}]}]
+[{"Key":"\/","Value":[{"Key":"S_START","Value":{"x":52,"y":114}},{"Key":"S_END","Value":{"x":779,"y":509}},{"Key":"S_0001","Value":{"x":176,"y":106}},{"Key":"S_0002","Value":{"x":425,"y":81}},{"Key":"S_0003","Value":{"x":191,"y":455}},{"Key":"S_0004","Value":{"x":513,"y":404}},{"Key":"S_0005","Value":{"x":527,"y":632}}]}]
 @@@
 linecolor_data=@@@
 [{"color":{"knownColor":0,"name":null,"state":2,"value":4285493103},"pattern":"BACKTO_"}]
@@ -436,7 +436,7 @@ incrdir=.
 code_output_start=[STATEGO OUTPUT START]
 code_output_end=[STATEGO OUTPUT END]
 
-clone_option=exchange_upper_camel_word
+clone_exchange=with_upper_camel_word
 
 ; This section has macro defines for converting.
 

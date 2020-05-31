@@ -13,9 +13,9 @@ check_excel_writable=no
 
 sheet=state-chart
 nameid_list=,n001,n002,n003,n004,n019,n005,,n01e,n006,,n007,n01f,,n008,n009,n00a,n00b,,n00c,n00d,,n00e,n00f,,n010,n011,,n012,n013,n014,n015,,n01a,,n01b,n01c,n01d,n016,n017,n018,,,,,,
-stateid_list=,,,,s0001,s0002,s000d,s0003,s000f,s0010,,,,,,,,s000e
+stateid_list=,,,,s0001,s0002,s000d,s0003,s000f,s0010,,s0012,s0013,s0014,s0015,s0016,s0017,s000e,s0019,s0018
 max_name_id=31
-max_state_id=16
+max_state_id=25
 [id_name_dic]
 n001=thumbnail
 n002=state
@@ -58,6 +58,14 @@ s000d=S_0002
 s000e=S_0003
 s000f=S_0004
 s0010=S_0005
+s0012=S_SBS000
+s0013=S_RET000
+s0014=S_0006
+s0015=S_GSB001
+s0016=S_LOP000
+s0017=S_SBS001
+s0018=S_0007
+s0019=S_RET001
 
 
 [s0001]
@@ -82,12 +90,12 @@ n016=@@@
 The root
 @@@
 
-n017=779,509
+n017=1893,154
 n018=100002
 
 [s0003]
 n002=S_0001
-n005=S_0002
+n005=S_LOP000
 n009=println!("StateGo is running");
 n016=@@@
 /
@@ -105,25 +113,35 @@ n003=
 n005=S_0003
 n007=m_cnt: i32,
 n01f=m_cnt: 0,
-n009=self.m_cnt = 0;
+n009=@@@
+self.m_cnt = 0;
+println!(">Loop in a state");
+@@@
+
 n00c=@@@
 println!("cnt={}", self.m_cnt);
 self.m_cnt += 1;
 @@@
 
 n00e=self.m_cnt != 10
+n010=println!(">Loop end");
 n016=@@@
 /
 (100,100)
 The root
 @@@
 
-n017=425,81
+n017=906,73
 n018=100004
 
 [s000e]
 n002=S_0003
-n008=let b = (rand(1000) % 2) == 0;
+n008=@@@
+let num = rand(1000);
+let b = (num % 2) == 0;
+println!("rand num={}", num);
+@@@
+
 n012=@@@
 brifc(S_0004);
 brelse(S_0005);
@@ -142,39 +160,154 @@ b
 n016=@@@
 /
 (100,100)
-
+The root
 @@@
 
-n017=191,455
+n017=1126,73
 n018=100005
 
 [s000f]
 n002=S_0004
 n003=
 n005=S_END
-n009=println!("<Even>");
+n009=println!("---> Even");
 n016=@@@
 /
 (100,100)
-
+The root
 @@@
 
-n017=513,404
+n017=1448,40
 n018=100006
 
 [s0010]
 n002=S_0005
 n003=
 n005=S_END
-n009=println!("<odd>");
+n009=println!("--->Odd");
 n016=@@@
 /
 (100,100)
-
+The root
 @@@
 
-n017=527,632
+n017=1462,268
 n018=100007
+
+[s0012]
+n002=S_SBS000
+n019=substart
+n005=S_0006
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=691,442
+n018=100009
+
+[s0013]
+n002=S_RET000
+n019=subreturn
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=1093,442
+n018=100012
+
+[s0014]
+n002=S_0006
+n005=S_RET000
+n009=@@@
+println!("> You are in the subroutine!");
+@@@
+
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=844,442
+n018=100011
+
+[s0015]
+n002=S_GSB001
+n019=gosub
+n005=S_0002
+n01a=S_SBS000
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=448,295
+n018=100013
+
+[s0016]
+n002=S_LOP000
+n019=loop
+n005=S_GSB001
+n007=m_loopindex : i32,
+n01f=m_loopindex: 0,
+n01a=S_SBS001
+n01b=self.m_loopindex = 0;
+n01c=self.m_loopindex < 10
+n01d=self.m_loopindex += 1;
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=287,594
+n018=100014
+
+[s0017]
+n002=S_SBS001
+n019=substart
+n005=S_0007
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=746,734
+n018=100015
+
+[s0018]
+n002=S_0007
+n005=S_RET001
+n009=@@@
+println!("> You are in the loop subroutine, cnt = {}", self.m_loopindex);
+@@@
+
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=899,734
+n018=100016
+
+[s0019]
+n002=S_RET001
+n019=subreturn
+n016=@@@
+/
+(100,100)
+The root
+@@@
+
+n017=1148,734
+n018=100017
 
 
 
@@ -183,7 +316,7 @@ n018=100007
 sheet=config
 
 ###VARIOUS-CONTENTS-BEGIN###
-; The setting was created automatically. 2020/05/31 9:17:00
+; The setting was created automatically. 2020/05/31 11:50:46
 ; * pssgEditor version : 0.64.65347.9a06832c09c6c0ad3e18f8476b073017fef0c06d
 psggfile=@@@
 hoge_control.psgg
@@ -201,7 +334,7 @@ c_thumbnail=1
 c_contents=1
 force_display_outpin=0
 last_action=@@@
-mov,S_START
+init,Saved
 @@@
 target_pathdir=@@@
 /
@@ -216,7 +349,7 @@ nodegroup_pos_list=@@@
 [{"Key":"\/","Value":{"x":100,"y":100}}]
 @@@
 fillter_state_location_list=@@@
-[{"Key":"\/","Value":[{"Key":"S_START","Value":{"x":52,"y":113.888885}},{"Key":"S_END","Value":{"x":779,"y":509}},{"Key":"S_0001","Value":{"x":176,"y":106}},{"Key":"S_0002","Value":{"x":425,"y":81}},{"Key":"S_0003","Value":{"x":191,"y":455}},{"Key":"S_0004","Value":{"x":513,"y":404}},{"Key":"S_0005","Value":{"x":527,"y":632}}]}]
+[{"Key":"\/","Value":[{"Key":"S_START","Value":{"x":52,"y":114}},{"Key":"S_END","Value":{"x":1893,"y":154}},{"Key":"S_0001","Value":{"x":176,"y":106}},{"Key":"S_0002","Value":{"x":906,"y":73}},{"Key":"S_0003","Value":{"x":1126,"y":73}},{"Key":"S_0004","Value":{"x":1448,"y":40}},{"Key":"S_0005","Value":{"x":1462,"y":268}},{"Key":"S_GSB000","Value":{"x":248,"y":425}},{"Key":"S_SBS000","Value":{"x":691,"y":442}},{"Key":"S_0006","Value":{"x":844,"y":442}},{"Key":"S_RET000","Value":{"x":1093,"y":442}},{"Key":"S_GSB001","Value":{"x":448,"y":295}},{"Key":"S_LOP000","Value":{"x":287,"y":594}},{"Key":"S_SBS001","Value":{"x":746,"y":734}},{"Key":"S_0007","Value":{"x":899,"y":734}},{"Key":"S_RET001","Value":{"x":1148,"y":734}}]}]
 @@@
 linecolor_data=@@@
 [{"color":{"knownColor":0,"name":null,"state":2,"value":4285493103},"pattern":"BACKTO_"}]
@@ -321,7 +454,7 @@ eof>>>
 <<<?state-typ/^gosub$/
 #[allow(non_snake_case)]
 fn [[state]](&mut self) {
-    GoSubState([[gosubstate]],[[nextstate]]);
+    self.gosub_state(State::[[gosubstate]], State::[[nextstate]]);
     self.no_wait();
 }
 eof>>>
@@ -329,7 +462,7 @@ eof>>>
 <<<?state-typ/^subreturn$/
 #[allow(non_snake_case)]
 fn [[state]](&mut self) {
-    ReturnState();
+    self.return_state();
     self.no_wait();
 }
 eof>>>
@@ -338,19 +471,19 @@ eof>>>
 #[allow(non_snake_case)]
 fn [[state]](&mut self) {
     [[loop_init]]
-    Goto([[state]]_LoopCheckAndGosub____);
+    self.goto(State::[[state]]_LoopCheckAndGosub____);
     self.no_wait();
 }
 #[allow(non_snake_case)]
 fn [[state]]_LoopCheckAndGosub____(&mut self) {
-    if ([[loop_cond]]) GoSubState([[gosubstate]],[[state]]_LoopNext____);
-    else               Goto([[nextstate]]);
+    if [[loop_cond]] { self.gosub_state(State::[[gosubstate]],State::[[state]]_LoopNext____); }
+    else             { self.goto(State::[[nextstate]]); }
     self.no_wait();
 }
 #[allow(non_snake_case)]
 fn [[state]]_LoopNext____(&mut self) {
     [[loop_next]]
-    Goto([[state]]_LoopCheckAndGosub____);
+    self.goto(State::[[state]]_LoopCheckAndGosub____);
     self.no_wait();
 }
 eof>>>
@@ -422,7 +555,7 @@ https://github.com/NNNIC/psgg-starter-kit.git b8deda1cf808e4b9b62e5697e1958776f6
 
 
 
-lang=c
+lang=rust
 framework=
 
 statemachine=hoge_control
@@ -436,7 +569,7 @@ incrdir=.
 code_output_start=[STATEGO OUTPUT START]
 code_output_end=[STATEGO OUTPUT END]
 
-clone_option=exchange_upper_camel_word
+clone_exchange=with_upper_camel_word
 
 ; This section has macro defines for converting.
 
@@ -465,7 +598,13 @@ else { self.goto( State::{%1} ); }
 
 #enums=@@@
 #[allow(non_camel_case_types)]
-[[state]],
+    [[state]],
+<<<?state-typ/^loop$/
+#[allow(non_camel_case_types)]
+    [[state]]_LoopCheckAndGosub____,
+#[allow(non_camel_case_types)]
+    [[state]]_LoopNext____,
+>>>
 @@@
 
 #def_members=@@@
@@ -478,40 +617,45 @@ else { self.goto( State::{%1} ); }
 
 #matches=@@@
 State::[[state]] => self.[[state]](),
+<<<?state-typ/^loop$/
+State::[[state]]_LoopCheckAndGosub____ => self.[[state]]_LoopCheckAndGosub____(),
+State::[[state]]_LoopNext____          => self.[[state]]_LoopNext____(),
+>>>
+
 @@@
 
 [jpn]
 
-title=C スタートキット 2019/11/2
+title=Rust スタートキット 2020/5/31
 
 detail=@@@
-C 用のステートマシンを作成します。
+Rust 用のステートマシンを作成します。
 
 ※サンプルプロジェクトを次のＵＲＬより入手可能。
-https://github.com/NNNIC/psgg-c-sample
+https://github.com/NNNIC/psgg-rust-sample
 
 
 #  以下のファイルを作成します。
 
       hoge_control.pssg   --- StateGoデータファイル
-      hoge_control.c      --- 実行ソース。変換コードが挿入される。
+      hoge_control.rs      --- 実行ソース。変換コードが挿入される。
 @@@
 
 
 [en]
 
-title=C STARTER KIT 2019/11/2
+title=Rust STARTER KIT 2020/5/31
 
 detail=@@@
-This is for creating a state machine using C language.
+This is for creating a state machine using Rust language.
 
 * You may get the sample project from the below url.
-https://github.com/NNNIC/psgg-c-sample
+https://github.com/NNNIC/psgg-rust-sample
 
 # Files
 
       hoge_control.pssg  --- StateGo Data File
-      hoge_control.c      -- StateGo will convert data to this file.
+      hoge_control.rs      -- StateGo will convert data to this file.
 
 @@@
 ###VARIOUS-CONTENTS-END###
